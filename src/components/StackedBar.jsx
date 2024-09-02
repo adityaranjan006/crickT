@@ -1,6 +1,7 @@
 import React from 'react'
 import {Bar, getElementsAtEvent} from 'react-chartjs-2'
 import {useRef} from 'react'
+
 import {
     Chart as ChartJs,
     CategoryScale,
@@ -10,7 +11,7 @@ import {
     Tooltip,
     Legend,
 } from 'chart.js';
-import { plugin } from 'postcss';
+import { useNavigate } from 'react-router-dom';
 
 ChartJs.register({
     CategoryScale,
@@ -61,11 +62,13 @@ const StackedBar = () => {
                 label: 'Abhinav',
                 data: [998,736,1800,300,800],
                 backgroundColor: 'rgb(211,155,1)',
-                stack: 'Stack 1'
+                stack: 'Stack 1',
             },
             
         ]
-    }   
+    }  
+
+    const navigate=useNavigate();
 
     const chartRef=useRef();
     const onClick=(event)=>{
@@ -77,7 +80,15 @@ const StackedBar = () => {
             const name=data.datasets[3].label;
             const stats=data.datasets[3].data;
             const category=data.labels;
+            
+            const player={
+                name:name,
+                statistics:stats,
+                category:category
+            }
 
+            navigate("/stats", {state:player});
+            
             console.log(name,stats,category)
         }
     }

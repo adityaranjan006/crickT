@@ -1,13 +1,17 @@
+import Dashboard from './components/Dashboard'
 import Header from './components/Header'
 import Landing from './components/Landing'
-import List from './components/List'
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
 function App() {
 
   return (
-    <>
-    <Header/>
-    <Landing />
-    </>
+    <BrowserRouter>
+      <Header/>
+      <Routes>
+        <Route path='/' element={<Landing/>} />
+        <Route path='/stats' element={<Dashboard/>} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
