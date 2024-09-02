@@ -1,5 +1,6 @@
 import React from 'react'
-import {Bar} from 'react-chartjs-2'
+import {Bar, getElementsAtEvent} from 'react-chartjs-2'
+import {useRef} from 'react'
 import {
     Chart as ChartJs,
     CategoryScale,
@@ -58,17 +59,32 @@ const StackedBar = () => {
             },
             {
                 label: 'Abhinav',
-                data: [998,736,1800,300,100],
-                backgroundColor: 'rgb(221,255,1)',
+                data: [998,736,1800,300,800],
+                backgroundColor: 'rgb(211,155,1)',
                 stack: 'Stack 1'
             },
             
         ]
+    }   
+
+    const chartRef=useRef();
+    const onClick=(event)=>{
+        if(getElementsAtEvent(chartRef.current,event).length>0){
+            // console.log(getElementsAtEvent(chartRef.current,event));
+            // const dataPoint=getElementsAtEvent(chartRef.current,event)[0].index;
+            // console.log(` DataPoint: ${dataSetIndex}`);
+            const dataSetIndex=getElementsAtEvent(chartRef.current,event)[3].datasetIndex;
+            const name=data.datasets[3].label;
+            const stats=data.datasets[3].data;
+            const category=data.labels;
+
+            console.log(name,stats,category)
+        }
     }
 
   return (
     <div className='flex w-full bg-slate-200 rounded-md p-2'>
-        <Bar options={option} data={data}/>
+        <Bar options={option} data={data} ref={chartRef} onClick={onClick}/>
         {/* <p>Stacked Bar Grpah</p> */}
     </div>
   )
