@@ -10,12 +10,12 @@ const MainCard = () => {
       <div className="flex flex-col pt-2 pb-2 shadow-xl">
         <ul className='flex flex-1 gap-2 justify-around text-white font-serif lg:font-semibold md:font-semibold sm:font-medium lg:text-sm md:text-sm sm:text-sm'>
             <li>Name: {currData.name}</li>
-            <li>Age: 26</li>
-            <li>T20 Team: CSK</li>
+            <li>Age: xxxx</li>
+            <li>T20 Team: xxxx</li>
         </ul>   
       </div>
       <div className="relative flex justify-center ">
-        <Rcprogress/>
+        <Rcprogress progress={currData.stats[5]}/>
       </div>
       <div className="flex justify-start chartSize">
         <StackedBar/>

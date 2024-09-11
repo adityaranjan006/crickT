@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import {Bar, getElementsAtEvent} from 'react-chartjs-2'
 import {useRef} from 'react'
 import { MyContext } from './MyContext'
+import { useNavigate } from 'react-router-dom';
 
 
 import {
@@ -13,7 +14,6 @@ import {
     Tooltip,
     Legend,
 } from 'chart.js';
-import { useNavigate } from 'react-router-dom';
 
 ChartJs.register({
     CategoryScale,
@@ -68,7 +68,7 @@ const StackedBar = () => {
                 label: 'S.Tendulkar',
                 data: [1080,736,2000,500,400],
                 backgroundColor: 'rgb(0,255,0)',
-                stack: 'Stack 0'
+                stack: 'Stack 0',
             },
             {
                 ...newData
@@ -95,6 +95,7 @@ const StackedBar = () => {
                 statistics:stats,
                 category:category
             }
+            console.log(player);
 
             navigate("/stats", {state:player});
             

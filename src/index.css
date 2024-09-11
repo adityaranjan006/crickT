@@ -37,6 +37,30 @@ body{
 }
 
 
+.BarSize {
+  width: 100%;
+  height: 250px;
+}
+
+@media (max-width: 600px) {
+  .BarSize {
+    height: 200px; 
+  }
+}
+
+@media (min-width: 601px) and (max-width: 768px) {
+  .BarSize {
+    height: 255px; 
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1536px) {
+  .BarSize {
+    height: 220px; 
+  }
+}
+
+
 .protest-guerrilla-regular {
   font-family: "Protest Guerrilla", sans-serif;
   font-weight: 400;
