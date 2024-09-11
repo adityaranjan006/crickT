@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {Bar, getElementsAtEvent} from 'react-chartjs-2'
 import {useRef} from 'react'
+import { MyContext } from './MyContext'
+
 
 import {
     Chart as ChartJs,
@@ -23,6 +25,16 @@ ChartJs.register({
 });
 
 const StackedBar = () => {
+  const {currData,setData}=useContext(MyContext);
+    const newData={
+            label: `${currData.name}`,
+            data: currData.stats,
+            backgroundColor: 'rgb(211,155,1)',
+            stack: 'Stack 1',
+        }
+    
+        console.log(newData)
+
     const option={
         indexAxis: 'y',
         responsive: true,
@@ -59,10 +71,7 @@ const StackedBar = () => {
                 stack: 'Stack 0'
             },
             {
-                label: 'Abhinav',
-                data: [998,736,1800,300,800],
-                backgroundColor: 'rgb(211,155,1)',
-                stack: 'Stack 1',
+                ...newData
             },
             
         ]
@@ -76,7 +85,7 @@ const StackedBar = () => {
             // console.log(getElementsAtEvent(chartRef.current,event));
             // const dataPoint=getElementsAtEvent(chartRef.current,event)[0].index;
             // console.log(` DataPoint: ${dataSetIndex}`);
-            const dataSetIndex=getElementsAtEvent(chartRef.current,event)[3].datasetIndex;
+            // const dataSetIndex=getElementsAtEvent(chartRef.current,event)[3].datasetIndex;
             const name=data.datasets[3].label;
             const stats=data.datasets[3].data;
             const category=data.labels;
