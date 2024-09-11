@@ -17,14 +17,14 @@ const Landing = () => {
   return (
         <MyContext.Provider value={{currData,setData,data}}>
           <div className="relative flex top-16">
-            <div className=" flex-col w-1/3 p-2 m-2 gap-1">
+            <div className=" flex-col w-1/3 p-1 ml-2 gap-1">
             {data.map((player,index)=>{
               return(
                 <List key={index} name={player.label} />
               )
             })}
             </div>
-            <div className="flex w-2/3 justify-center m-2 p-2 h-auto">
+            <div className="flex w-2/3 justify-center mr-2 p-2 mt-2 h-auto">
               <MainCard/>
             </div>
           </div>
