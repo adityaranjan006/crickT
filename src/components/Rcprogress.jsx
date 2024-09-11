@@ -11,12 +11,12 @@ const Rcprogress = (props) => {
           <Circle className='arc-progress progress-circle'
           percent={props.progress} 
           strokeWidth={9} 
-          trailWidth={9}
+          trailWidth={8}
           trailColor="#d688d6"
           strokeLinecap="round"
           gapDegree={100}
           gapPosition='bottom'
-          strokeColor={{ '0%': '#108ee9', '100%': '#87d068' }}
+          strokeColor={{ '0%': '#108ee9', '100%': '#87e068' }}
           /> 
           <CountUp className='absolute top-40 text-6xl font-extrabold text-slate-200' start={1} end={[props.progress]} delay={0}/>
         </div>
