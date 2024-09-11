@@ -24,7 +24,7 @@ const List = (props) => {
 
   return (
     <div className='relative flex w-full bg-gradient-to-r from-slate-200 via-blue-200 to-purple-400 rounded-md rounded-tr-2xl lg:py-1.5 md:py-3 sm:py-2 xs:py-2 px-2 mt-2 hover:scale-105 transition duration-150' onClick={handleOnClick}>
-      <button className='w-full h-full flex flex-start lg:text-xl md:text-md sm:text-md font-mono' >{props.name}</button>
+      <button className='w-full h-full flex flex-start lg:text-xl md:text-md sm:text-md xs:text-md font-mono' >{props.name}</button>
     </div>
   )
 }
