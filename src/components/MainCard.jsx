@@ -10,7 +10,7 @@ const MainCard = () => {
       <div className="flex flex-col pt-2 pb-2 shadow-xl">
         <ul className='flex flex-1 gap-2 justify-around text-white font-serif lg:font-semibold md:font-semibold sm:font-medium xs:text-sm lg:text-sm md:text-sm sm:text-sm'>
             <li>Name: {currData.name}</li>
-            <li>Age: xxxx</li>
+            <li>Age: cc</li>
             <li>T20 Team: xxxx</li>
         </ul>   
       </div>
