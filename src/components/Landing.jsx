@@ -20,7 +20,7 @@ const Landing = () => {
             <div className=" flex-col lg:w-1/3 md:w-1/3 sm:1/3 xs:w-2/3 p-1 ml-2 gap-1">
             {data.map((player,index)=>{
               return(
-                <List key={index} name={player.label} />
+                <List key={index} name={player.label} over={player.data[5]}/>
               )
             })}
             </div>

@@ -10,6 +10,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import { color } from 'chart.js/helpers';
 
 ChartJs.register({
   CategoryScale,
@@ -51,16 +52,16 @@ const DashCard = (props) => {
     ]
 
     const data={
-      labels: [`${TopPlayers[0].label}`, `${TopPlayers[1].label}`,`${TopPlayers[2].label}`,`${props.name}`],
+      labels: [`${props.name}`,`${TopPlayers[0].label}`, `${TopPlayers[1].label}`,`${TopPlayers[2].label}`],
       datasets: [
           {
             label: [`${props.name}`],
-            data: [`${props.top1}`, `${props.top2}`, `${props.top3}`,`${props.stat}`],
+            data: [`${props.stat}`,`${props.top1}`, `${props.top2}`, `${props.top3}`],
             backgroundColor:[
-              'rgb(0,0,255)',
-              'rgb(0,255,0)',
-              'rgb(255,0,0)',
-              'rgb(199,21,127)',
+              'rgb(255,99,132)',
+              'rgb(54,162,235)',
+              'rgb(255,205,86)',
+              'rgb(75,192,192)',
             ],
           },
       ]

@@ -9,8 +9,15 @@ body{
 }
 
 .arc-progress{
-  width: 220px;
-  height: 220px;
+  width: 250px;
+  height: 250px;
+}
+
+@media (max-width: 639px) {
+  .arc-progress {
+    width: 30px;  /* Adjust the width for mobile phones */
+    height: 30px; /* Adjust the height for mobile phones */
+  }
 }
 
 .chartSize {

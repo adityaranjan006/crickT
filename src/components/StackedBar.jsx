@@ -25,7 +25,7 @@ ChartJs.register({
 });
 
 const StackedBar = () => {
-  const {currData,setData}=useContext(MyContext);
+  const {currData}=useContext(MyContext);
     const newData={
             label: `${currData.name}`,
             data: currData.stats,
@@ -33,7 +33,7 @@ const StackedBar = () => {
             stack: 'Stack 1',
         }
     
-        console.log(newData)
+        // console.log(newData)
 
     const option={
         indexAxis: 'y',
@@ -95,11 +95,10 @@ const StackedBar = () => {
                 statistics:stats,
                 category:category
             }
-            console.log(player);
 
             navigate("/stats", {state:player});
             
-            console.log(name,stats,category)
+            // console.log(name,stats,category)
         }
     }
 
