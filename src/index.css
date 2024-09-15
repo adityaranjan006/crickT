@@ -2,21 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
+
 
 body{
   --tw-bg-opacity: 1;
-  background-color: rgb(15 23 42 / var(--tw-bg-opacity))
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity))
 }
 
-.arc-progress{
+.arc-progress {
   width: 250px;
   height: 250px;
 }
 
+@media (min-width: 640px) and (max-width: 768px) {
+  .arc-progress {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .arc-progress {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+  .arc-progress {
+    width: 225px;
+    height: 225px;
+  }
+}
+
+@media (min-width: 1201px) {
+  .arc-progress {
+    width: 250px;
+    height: 250px;
+  }
+}
+
 @media (max-width: 639px) {
   .arc-progress {
-    width: 30px;  /* Adjust the width for mobile phones */
-    height: 30px; /* Adjust the height for mobile phones */
+    width: 30px;
+    height: 30px;
   }
 }
 

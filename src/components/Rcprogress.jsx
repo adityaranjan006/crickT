@@ -18,7 +18,7 @@ const Rcprogress = (props) => {
           gapPosition='bottom'
           strokeColor={{ '0%': '#ff5722', '100%': '#4caf50' }}
           /> 
-          <CountUp className='absolute lg:top-40 md:top-40 sm:top-40 xs:absolute xs:top-4 lg:text-6xl md:text-4xl sm:text-3xl xs:text-xs lg:font-extrabold md:font-extrabold sm:font-extrabold xs:font-semibold text-slate-200' start={1} end={[props.progress]} delay={0}/>
+          <CountUp className='absolute lg:top-40 md:top-32 sm:top-28 xs:absolute xs:top-2 lg:text-6xl md:text-4xl sm:text-3xl xs:text-xs lg:font-extrabold md:font-extrabold sm:font-extrabold xs:font-semibold text-slate-200' start={1} end={[props.progress]} delay={0}/>
         </div>
       </div>
     </div>

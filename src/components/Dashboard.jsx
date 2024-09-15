@@ -26,7 +26,7 @@ const Dashboard = () => {
 
 
   return (
-    <div className='relative grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 lg:gap-10 md:gap-5 sm:gap-5 top-20 mx-4'>
+    <div className='relative grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 lg:gap-10 md:gap-5 sm:gap-5 xs:gap-7 top-20 mx-4'>
       {category.map((e,id)=>{
         return(<DashCard name={name} val={e} key={id} stat={statistics[id]} top1={TopPlayers[0].data[id]} top2={TopPlayers[1].data[id]} top3={TopPlayers[2].data[id]} />)
       })}

@@ -35,9 +35,20 @@ const DashCard = (props) => {
           y: {
               stacked: false
           },
-        
       },
+      color:'#9fffff',
+      autoPadding:true,
     }
+    //Canvas Background 
+    const plugin = {
+      id: 'CanvasBackgroundColor',
+      beforeDatasetsDraw: (chart, args, options) => {
+        const {ctx,chartArea:{top,bottom,left,right,width,height}} = chart;
+        ctx.save();
+        ctx.fillStyle = options.color;
+        ctx.fillRect(left, top, width, height);
+      }
+    };
 
     const TopPlayers=[
         {
@@ -67,15 +78,16 @@ const DashCard = (props) => {
       ]
     }  
   return (
-    <div className='flex flex-col rounded-lg transition duration-150 p-2 bg-gradient-to-r from-slate-200 via-blue-200 to-purple-400 justify-end hover:scale-105 lg:gap-5 md:gap-2 sm:gap-2 mt-2 rounded-tr-2xl'>
-        <div className="flex- justify-start">
+    <div className='relative flex flex-col rounded-lg transition duration-150 p-2 bg-black text-white justify-end lg:gap-5 md:gap-2 sm:gap-2 mt-2 rounded-tr-2xl group'>
+      <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 blur opacity-75 rounded-lg rounded-tr-2xl group-hover:scale-105 transition duration-150" style={{ zIndex: -1 }}></div>
+        <div className="relative flex justify-start">
             <h2 className='text-2xl font-extrabold'>{props.val}</h2>
         </div>
-        <div className="BarSize">
-        <Bar options={option} data={data}/>
+          <div className="relative BarSize">
+          <Bar options={option} plugins={[plugin]} data={data}/>
         </div>
-        <div className="flex justify-start">
-            <h2 className='lg:text-4xl md:text-4xl sm:text-3xl font-mono-800 font-extrabold'>
+          <div className="relative flex justify-start">
+            <h2 className='relative lg:text-4xl md:text-4xl sm:text-3xl font-mono-800 font-extrabold'>
             <CountUp start={0} end={props.stat} delay={1}/>
             </h2>     
         </div>

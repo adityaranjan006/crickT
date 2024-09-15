@@ -14,6 +14,7 @@ import {
     Tooltip,
     Legend,
 } from 'chart.js';
+import { color } from 'chart.js/helpers';
 
 ChartJs.register({
     CategoryScale,
@@ -24,19 +25,31 @@ ChartJs.register({
     Legend
 });
 
-const StackedBar = () => {
-  const {currData}=useContext(MyContext);
-    const newData={
-            label: `${currData.name}`,
-            data: currData.stats,
-            backgroundColor: 'rgb(211,155,1)',
-            stack: 'Stack 1',
-        }
-    
-        // console.log(newData)
 
+const StackedBar = () => {
+    const {currData}=useContext(MyContext);
+    const newData={
+        label: `${currData.name}`,
+        data: currData.stats,
+        backgroundColor: 'rgb(211,155,1)',
+        stack: 'Stack 1',
+    }
+    
+    // console.log(newData)
+    
+    //Canvas Background 
+    const plugin = {
+        id: 'customCanvasBackgroundColor',
+        beforeDatasetsDraw: (chart, args, options) => {
+          const {ctx,chartArea:{top,bottom,left,right,width,height}} = chart;
+          ctx.save();
+          ctx.fillStyle = options.color;
+          ctx.fillRect(left, top, width, height);
+        }
+      };
+    
     const option={
-        indexAxis: 'y',
+        indexAxis: 'x',
         responsive: true,
         scales: {
             x: {
@@ -44,8 +57,9 @@ const StackedBar = () => {
             },
             y: {
                 stacked: true
-            }
+            },
         },
+        color:'#9fffff'
         
         
     }
@@ -103,8 +117,8 @@ const StackedBar = () => {
     }
 
   return (
-    <div className='flex w-full bg-slate-200 rounded-md p-2'>
-        <Bar options={option} data={data} ref={chartRef} onClick={onClick}/>
+    <div className='flex w-full bg-black rounded-md p-2'>
+        <Bar options={option} data={data} ref={chartRef} plugins={[plugin]} onClick={onClick}/>
         {/* <p>Stacked Bar Grpah</p> */}
     </div>
   )
